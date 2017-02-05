@@ -4,5 +4,8 @@ MAINTAINER Ianus IT GmbH <info@ianus-it.de>
 
 RUN apk add --update bind &&\
     rm -rf /var/cache/apk/*
+   
+COPY files/start.sh /start.sh
+RUN chmod +x /start.sh
 
-CMD ["named", "-c", "/etc/bind/named.conf", "-u", "named", "-f"]
+CMD ["/start.sh"]
